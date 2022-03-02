@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// done with string
 void searchf(string pat, string txt)
 {
     if(pat.substr(0, txt.length()) == txt)

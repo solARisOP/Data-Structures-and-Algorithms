@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+// recurssive approach
 void printsubsequence(vector<string> &v, string s, string o, int i)
 {
     if(i >= s.length())

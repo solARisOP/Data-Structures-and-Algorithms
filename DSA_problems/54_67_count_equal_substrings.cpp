@@ -15,7 +15,7 @@ int counts(string s)
         {
             c1++;
         }
-        if(c0 == c1)
+        if(c0 == c1) // if count is same initial count wiil be incremented
         {
             c++;
         }

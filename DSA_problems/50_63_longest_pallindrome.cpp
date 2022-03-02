@@ -21,7 +21,7 @@ string longestPalin (string S)
         int l1 = check(S, i, i);
         int l2 = check(S, i, i+1);
         int len = max(l1, l2);
-        if(maxl<len)
+        if(maxl<len)// if not than the start will be same and we will get our initial substring
         {
             start = i -(len - 1)/2;
             maxl = len;

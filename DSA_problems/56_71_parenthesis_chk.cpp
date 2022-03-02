@@ -3,7 +3,7 @@ using namespace std;
 
 int match(char a, char b)
 {
-    if((a == '{' && b == '}') || (a == '[' && b == ']') || (a == '(' && b == ')'))
+    if((a == '{' && b == '}') || (a == '[' && b == ']') || (a == '(' && b == ')')) // for checking the char
     {
         return 1;
     }

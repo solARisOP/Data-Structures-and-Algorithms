@@ -14,9 +14,9 @@ vector<int> nextPermutation(int N, vector<int> arr)
         }
     }
 
-    if(indexl == -1)
+    if(indexl == -1) // not next permutation exits
     {
-        reverse(arr.begin(), arr.end());
+        reverse(arr.begin(), arr.end()); 
         return arr;
     }
     for (int i = N-1; i >= 0; i--)

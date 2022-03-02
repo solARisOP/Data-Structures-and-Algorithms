@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// recurssive approach
 void solve(vector<string>& v, string s, int i)
 {
     if(i >= s.length())
