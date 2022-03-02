@@ -13,7 +13,7 @@ int check(string s, int l, int r)
     return r-l-1;
 }
 
-string longestPalin (string S) 
+string longestPalin (string S)
 {
     int start =0, end =0, maxl = INT_MIN;
     for (int i = 0; i < S.length(); i++)
@@ -35,6 +35,5 @@ string longestPalin (string S)
 int main()
 {
     string S = "aaaabbaa";
-    cout<<longestPalin(S);
     return 0;
 }
