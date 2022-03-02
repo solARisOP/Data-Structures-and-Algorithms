@@ -1,36 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool checkpallindrome(string s, int st, int e)
+int check(string s, int l, int r)
 {
-    string p = s;
-    reverse(s.begin()+st, s.begin()+e);
-    if(p == s)
-        return true;
-    return false;
+    if(s.length()<=0 || l>r) return 0;
+    while(l>=0 && r<s.length() && s[l] == s[r])
+    {
+        l--;
+        r++;
+    }
+
+    return r-l-1;
 }
 
 string longestPalin (string S) 
 {
-    if(checkpallindrome(S, 0, S.size())) return S;
-    
-    for (int i = 0; i < S.size(); i++)
+    int start =0, end =0, maxl = INT_MIN;
+    for (int i = 0; i < S.length(); i++)
     {
-        for (int j = S.size()-1; j >= i; j--)
+        int l1 = check(S, i, i);
+        int l2 = check(S, i, i+1);
+        int len = max(l1, l2);
+        if(maxl<len)
         {
-            if(checkpallindrome(S, i, j+1))
-            {
-                // string P = S
-                S.erase(S.begin(), S.begin()+i);
-                S.erase(S.begin()+j+1, S.end());
-                return S;
-            }
-        }   
+            start = i -(len - 1)/2;
+            maxl = len;
+        }
     }
-    string p;
-    p.push_back(S[0]);
-    return p;
+    return S.substr(start, maxl);
 }
+
+
 
 int main()
 {
