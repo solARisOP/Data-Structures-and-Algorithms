@@ -1,1 +1,1 @@
-// postfix = postfix+infix[i];
+patternSearch((char *)grid, "EEE", R, C);
