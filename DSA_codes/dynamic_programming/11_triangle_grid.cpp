@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//memoization
 int solve(int i, int j, vector<vector<int>>& t, int n, vector<vector<int>> dp)
 {
     if(i == n-1) return t[i][j];
@@ -18,7 +19,7 @@ int minimumPathSum(vector<vector<int>>& triangle, int n)
 	return solve(0,0,triangle, n, dp);
 }
 
-// tabulatiom=n
+// tabulation
 int minimumPathSum_tab(vector<vector<int>>& triangle, int n)
 {
     vector<vector<int>> dp(n, vector<int>(n));
@@ -38,6 +39,28 @@ int minimumPathSum_tab(vector<vector<int>>& triangle, int n)
         
     }
     return dp[0][0];
+}
+
+// tabulation with space optimisation
+int minimumPathSum_tab(vector<vector<int>>& triangle, int n)
+{
+    vector<int> dp (n);
+    for (int i = 0; i < n; i++)
+    {
+        dp[i] = triangle[n-1][i];
+    }
+    for (int i = n-2; i >= 0 ; i--)
+    {
+        vector<int> temp(i+1);
+        for (int j = i; j >= 0; j--)
+        {
+            int down = triangle[i][j] + dp[j];
+            int diag = triangle[i][j] + dp[j+1];
+            temp[j] = min(down, diag);
+        }
+        dp = temp;
+    }
+    return dp[0];
 }
 
 int main()
