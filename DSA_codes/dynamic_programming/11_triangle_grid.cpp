@@ -42,7 +42,7 @@ int minimumPathSum_tab(vector<vector<int>>& triangle, int n)
 }
 
 // tabulation with space optimisation
-int minimumPathSum_tab(vector<vector<int>>& triangle, int n)
+int minimumPathSum_tab1(vector<vector<int>>& triangle, int n)
 {
     vector<int> dp (n);
     for (int i = 0; i < n; i++)
