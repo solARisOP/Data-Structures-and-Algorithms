@@ -59,17 +59,14 @@ void rearrange(int arr[], int n)
     int i =0;
     while(i<n-2)
     {
-        if(i == 0 && arr[i+1]>=0 && arr[i]<0)
+        if(i == 0 )
         {
-            if(neg(arr, n, i+1+1) == -1)
+            if(neg(arr, n, i+1+1) == -1 && arr[i+1]>=0 && arr[i]<0)
             {
                 swap(arr[i], arr[i+1]);
                 return;
-            } 
-        }
-        else if(i == 0 && arr[i+1]<0 && arr[i]>=0)
-        {
-            if(pos(arr, n, i+1+1) == -1)
+            }
+            else if(pos(arr, n, i+1+1) == -1 && arr[i+1]<0 && arr[i]>=0)
             {
                 swap(arr[i], arr[i+1]);
                 return;
