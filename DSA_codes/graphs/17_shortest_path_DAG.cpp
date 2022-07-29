@@ -37,7 +37,7 @@ vector<int> shortest_path(int src, int n, vector<pair<int,int>> *adj)
         int node = st.top();
         st.pop();
 
-        if(vis[node] != INT_MAX)
+        if(dist[node] != INT_MAX)
         {
             for(auto i : adj[node])
             {

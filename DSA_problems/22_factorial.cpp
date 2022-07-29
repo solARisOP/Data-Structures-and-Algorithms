@@ -10,21 +10,21 @@ void multiply(vector<int> &fac, int n)
         fac[i] = data % 10;
         carry = data / 10;
     }
-    for (int i = 0; i < fac.size(); i++)
-    {
-        cout<<fac[i];
-    }
-    cout<<"/";
+    // for (int i = 0; i < fac.size(); i++)
+    // {
+    //     // cout<<fac[i];
+    // }
+    // cout<<"/";
     while(carry)
     {
         fac.push_back(carry % 10);
         carry /= 10;
     }
-    for (int i = 0; i < fac.size(); i++)
-    {
-        cout<<fac[i];
-    }
-    cout<<endl;
+    // for (int i = 0; i < fac.size(); i++)
+    // {
+    //     cout<<fac[i];
+    // }
+    // cout<<endl;
 }
    
 vector<int> factorial(int N)
