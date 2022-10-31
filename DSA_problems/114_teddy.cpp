@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> v;
+int result = INT_MAX;
 
 int func(int i, int td, int n, int t[], int c[], vector<vector<int>> &dp, int maxi)
 {
     if(i>=n)
     {
-        v.push_back(maxi);
+        result = min(result, maxi);
         return 0;
     }    
     
@@ -26,11 +26,11 @@ int func(int i, int td, int n, int t[], int c[], vector<vector<int>> &dp, int ma
     return dp[i][td] = m;
 }
 
-int min_choc(int td, int n, int t[], int c[])
+void min_choc(int td, int n, int t[], int c[])
 {
     vector<vector<int>> dp(n,vector<int>(td+1, -1));
     func(0,td,n,t,c,dp, -1e9);
-    return *min_element(v.begin(), v.end());
+    cout<<result;
 }
 
 int main()
@@ -40,6 +40,6 @@ int main()
     int t[n], c[n];
     for(int &i : t) cin>>i;
     for(int &i : c) cin>>i;
-    cout<<min_choc(td,n,t,c)<<endl;
+    min_choc(td,n,t,c);
     return 0;
 }
