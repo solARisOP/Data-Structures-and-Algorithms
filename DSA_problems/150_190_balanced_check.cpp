@@ -10,16 +10,28 @@ public:
     int val;
     Node *left;
     Node *right;
-
     Node() : val(0), left(NULL), right(NULL) {}
     Node(int x) : val(x), left(NULL), right(NULL) {}
     Node(int x, Node *a, Node *b) : val(x), left(a), right(b) {}
 };
 
-int height(Node *root)
+int height(Node * root)
 {
-    if (!root) return 0;
-    return 1 + max(height(root->left), height(root->right));
+    if(!root) return 0;
+
+    int lh = height(root->left);
+    if(lh == -1) return -1;
+    int rh = height(root->right);
+    if(rh == -1) return -1;
+
+    if(abs(lh-rh)>1) return -1;
+
+    return max(lh, rh)+1;
+}
+
+bool isBalanced(Node *root)
+{
+    return height(root) != -1;
 }
 
 int main()
