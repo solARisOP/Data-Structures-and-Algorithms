@@ -73,14 +73,14 @@ int editDistance(string str1, string str2)
     {
         for (int j = 1; j <= s2; j++)
         {
-            if(str1[i-1] == str2[j-1]) return dp[i][j] = dp[i-1][j-1];
+            if(str1[i-1] == str2[j-1]) dp[i][j] = dp[i-1][j-1];
             else
             {
                 int ins = 1 + dp[i][j-1]; 
 	        	int del = 1 + dp[i-1][j]; 
 	        	int rep = 1 + dp[i-1][j-1]; 
 
-                return dp[i][j] = min(ins, min(del, rep));
+                dp[i][j] = min(ins, min(del, rep));
             }
         }
     }
