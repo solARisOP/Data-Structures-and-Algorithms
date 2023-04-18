@@ -29,7 +29,7 @@ int findMaxSum(vector<int> &a)
 }
 
 // tabulation
-int findMaxSum(vector<int> &a)
+int findMaxSum_tab(vector<int> &a)
 {
     // Code Here
     int n = a.size();
@@ -43,7 +43,29 @@ int findMaxSum(vector<int> &a)
 
         dp[i] = max({take, take_1, n_take});
     }
-    return solve(0, n, a, dp);
+    return dp[0];
+}
+
+// space optimisation
+int findMaxSum_SO(vector<int> &a)
+{
+    // Code Here
+    int n = a.size();
+    vi dp(4, 0);
+    for(int i = n-1; i>=0; i--)
+    {
+        int take = 0;
+        if(i!= n-1)take = a[i] + a[i + 1] + dp[3];
+        int take_1 = a[i] + dp[2];
+        int n_take = dp[1];
+
+        dp[0] = max({take, take_1, n_take});
+        
+        dp[3] = dp[2];
+        dp[2] = dp[1];
+        dp[1] = dp[0];
+    }
+    return dp[0];
 }
 int main()
 {

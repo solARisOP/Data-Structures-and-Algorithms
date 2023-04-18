@@ -42,6 +42,25 @@ int FindMaxSum_tab(int a[], int n)
     return dp[0];
 }
 
+// space optimization
+int FindMaxSum_SO(int a[], int n)
+{
+    // Your code here
+    vi dp(3, 0);
+
+    for(int i= n-1; i>=0; i--)
+    {
+        int take = a[i] + dp[2];
+        int n_take = dp[1];
+
+        dp[0] = max(take, n_take);
+
+        dp[2] = dp[1];
+        dp[1] = dp[0];
+    }
+    return dp[0];
+}
+
 int main()
 {
 
