@@ -30,8 +30,8 @@ void left_view_recurssive(int level, Node * root, queue<Node*> &q)
     if(!root) return;
 
     if(q.size() == level) q.push(root);
-    if(root->left) right_view_recurssive(level+1, root->left, q);
-    if(root->right) right_view_recurssive(level+1, root->right, q);
+    if(root->left) left_view_recurssive(level+1, root->left, q);
+    if(root->right) left_view_recurssive(level+1, root->right, q);
 }
 
 vi right_view_iterative(Node * root)
