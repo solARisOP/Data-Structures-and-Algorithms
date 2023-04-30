@@ -27,18 +27,20 @@ void count_nodes(Node *root, int &count)
 
 void median(Node * root, int  fl, float &prev, float &ans, int count, int& k)
 {
-    if(!root) return;
-    
+    if(!root || ans != -1) return;
+
     median(root->left, fl, prev, ans, count, k);
 
     k++;
     if(!fl &&k == (count/2)+1)
     {
         ans = (prev+float(root->data))/2;
+        return;
     }
     else if(fl && k == (count/2)+1)
     {
         ans = root->data;
+        return;
     }
     prev = root->data;
 
