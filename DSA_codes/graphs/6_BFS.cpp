@@ -5,7 +5,7 @@ vector<int> BFS(vector<int> adj[], int n)
 {
     vector<int> vis(n+1, 0);
     vector<int> bfs;
-    for (int i = 6; i <= n; i++) // this for loop is for components of graph if existed
+    for (int i = 1; i <= n; i++) // this for loop is for components of graph if existed
     {
         if(!vis[i])
         {
