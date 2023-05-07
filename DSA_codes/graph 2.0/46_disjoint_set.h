@@ -1,15 +1,6 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-#define vi vector<int>
-#define vii vector<vi>
-#define pii pair<int, int>
-#define vp vector<pii>
-
 class DisjointSet
 {
-    private:
-        vi rank, parent, size;
+    vector<int> rank, parent, size;
 
     public:
         DisjointSet(int n)
@@ -30,7 +21,7 @@ class DisjointSet
                 return n;
             }
 
-            return parent[n] = findUPar(n-1);
+            return parent[n] = findUPar(parent[n]);
         }
 
         void unionByRank(int u, int v)
@@ -72,24 +63,3 @@ class DisjointSet
             }
         }
 };
-
-
-int main()
-{
-    DisjointSet ds(7);
-    ds.unionBySize(1,2);
-    ds.unionBySize(2,3);
-    ds.unionBySize(4,5);
-    ds.unionBySize(6,7);
-    ds.unionBySize(5,6);
-
-    if(ds.findUPar(3) == ds.findUPar(7)) cout<<"same"<<endl;
-    else cout<<"Notsame"<<endl;
-
-    ds.unionBySize(3,7);
-
-    if(ds.findUPar(3) == ds.findUPar(7)) cout<<"same"<<endl;
-    else cout<<"Notsame"<<endl;
-
-    return 0;
-}
