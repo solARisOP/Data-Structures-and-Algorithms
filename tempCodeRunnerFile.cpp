@@ -1,1 +1,0 @@
-patternSearch((char *)grid, "EEE", R, C);
