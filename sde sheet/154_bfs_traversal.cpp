@@ -1,12 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define ll long long
 #define vi vector<int>
-#define vii vector<vi>
-#define vp vector<pair<int, int>>
+#define vvi vector<vi>
+#define pii pair<int, int>
+#define vp vector<pii>
 
-vi bfs(int n, vi adj_l[])
-{
+vector<int> bfsTraversal(int n, vector<vector<int>> &adj){
+    // Write your code here.
     vi ans;
     vi vis(n, 0);
 
@@ -23,7 +25,7 @@ vi bfs(int n, vi adj_l[])
                 int node = q.front();
                 q.pop();
                 ans.push_back(node);
-                for(int it : adj_l[node])
+                for(int it : adj[node])
                 {
                     if(!vis[it])
                     {
