@@ -6,33 +6,34 @@ using namespace std;
 #define pii pair<int, int>
 #define vp vector<pii>
 
-void solve(string &s, string &ans)
+string getPermutation(int n, int k)
 {
-    if(ans.length() == s.length())
+    vi nums;
+    int fac = 1;
+    for (int i = 1; i < n; i++)
     {
-        cout<<ans<<" ";
-        return;
+        nums.push_back(i);
+        fac *= i;
+    }
+    nums.push_back(n);
+    string ans = "";
+    k = k - 1;
+    while (1)
+    {
+        int ind = k / fac;
+        ans.push_back(nums[ind] + '0');
+        nums.erase(begin(nums) + ind);
+        if (ans.size() == n)
+            break;
+        k %= fac;
+        fac /= nums.size();
     }
 
-    for(int i=0; i<s.length(); i++)
-    {
-        if(s[i]!='0')
-        {
-            char c = s[i];
-            ans.push_back(s[i]);
-            s[i] = '0';
-            solve(s,ans);
-            s[i]= c;
-            ans.pop_back();
-        }
-    }
+    return ans;
 }
 
 int main()
 {
-    string s = "12345"; 
-    vi vis(s.length(), 0);
-    string ans = "";
-    solve(s, ans);
+    
     return 0;
 }
